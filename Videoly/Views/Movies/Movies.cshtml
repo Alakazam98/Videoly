@@ -1,0 +1,38 @@
+﻿@using System.Web.UI.WebControls
+@using WebGrease.Css.Extensions
+@model IEnumerable<Videoly.Models.Movie>
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Movies</h2>
+<button type="button" class="btn btn-primary" onclick="location.href=' @Url.Action("New", Model) '">NEW MOVIE</button>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <td>Movie details</td>
+           
+
+        </tr>
+    
+    </thead>
+    <tbody>
+        
+            @foreach (var movies in Model)
+            {
+        <tr>
+            <td>@Html.ActionLink(movies.Name, "MoviesForm", movies)</td>
+            
+
+        </tr>
+                
+                    
+                
+            }
+        
+    </tbody>
+
+</table>
+
+
