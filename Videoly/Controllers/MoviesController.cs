@@ -6,10 +6,12 @@ using System.Web.Mvc;
 using Videoly.Models;
 using System.Data.Entity;
 using Videoly.ViewModel;
+using Videoly.Interfaces;
 
 namespace Videoly.Controllers
 {
-    public class MoviesController : Controller
+    [Authorize]
+    public class MoviesController : Controller, IMovies
     {
         // GET: Movies
         private ApplicationDbContext _context;
@@ -67,9 +69,9 @@ namespace Videoly.Controllers
             return View(movie);
         }
 
-        public ActionResult New()
+        public ActionResult New(Movie movie)
         {
-            return View();
+            return View("New");
         }
       
 

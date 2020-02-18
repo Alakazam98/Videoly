@@ -9,6 +9,7 @@ using Videoly.ViewModel;
 
 namespace Videoly.Controllers
 {
+    [Authorize]
     public class CustomersController : Controller
     {
         private ApplicationDbContext _context;
